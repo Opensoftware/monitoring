@@ -1,0 +1,4 @@
+whisper:
+  image: os/carbon
+  command: whisper
+
