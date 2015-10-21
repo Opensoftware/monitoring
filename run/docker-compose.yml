@@ -1,0 +1,27 @@
+carbonrelay:
+  image: os/carbon
+  command: relay
+  restart: always
+  ports:
+   - "2003:2003"
+   - "2004:2004"
+  volumes:
+   - ./carbon/relay:/etc/carbon
+  links:
+   - carboncache1
+   - carboncache2
+
+carboncache1:
+  image: os/carbon
+  command: cache
+  restart: always
+  volumes:
+   - ./carbon/cache:/etc/carbon
+
+carboncache2:
+  image: os/carbon
+  command: cache
+  restart: always
+  volumes:
+   - ./carbon/cache:/etc/carbon
+
