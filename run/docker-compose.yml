@@ -44,7 +44,7 @@ graphite:
    - carboncache2
 
 grafana:
-  image: os/grafana
+  image: grafana/grafana:2.1.3
   restart: always
   links:
    - graphite
