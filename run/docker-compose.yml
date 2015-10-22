@@ -31,3 +31,16 @@ carboncache2:
   volumes:
    - ./carbon/cache:/etc/carbon
 
+graphite:
+  image: os/graphite_web
+  command: graphiteweb
+  restart: always
+  ports:
+   - "80:80"
+  volumes_from:
+   - monitoring_whisper_1
+  volumes:
+   - ./graphite_web:/etc/graphite
+  links:
+   - carboncache1
+   - carboncache2
