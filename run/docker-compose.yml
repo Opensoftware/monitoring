@@ -44,3 +44,12 @@ graphite:
   links:
    - carboncache1
    - carboncache2
+
+grafana:
+  image: os/grafana
+  restart: always
+  ports:
+   - "81:3000"
+  links:
+   - graphite
+
