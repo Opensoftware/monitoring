@@ -1,5 +1,5 @@
 carbonrelay:
-  image: os/carbon
+  image: opensoftware/carbon
   command: relay
   restart: always
   ports:
@@ -14,7 +14,7 @@ carbonrelay:
    - carboncache2
 
 carboncache1:
-  image: os/carbon
+  image: opensoftware/carbon
   command: cache
   restart: always
   volumes_from:
@@ -23,7 +23,7 @@ carboncache1:
    - ./carbon/cache:/etc/carbon
 
 carboncache2:
-  image: os/carbon
+  image: opensoftware/carbon
   command: cache
   restart: always
   volumes_from:
@@ -32,7 +32,7 @@ carboncache2:
    - ./carbon/cache:/etc/carbon
 
 graphite:
-  image: os/graphite_web
+  image: opensoftware/graphite_web
   command: graphiteweb
   restart: always
   volumes_from:

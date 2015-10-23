@@ -1,4 +1,4 @@
 whisper:
-  image: os/carbon
+  image: opensoftware/carbon
   command: whisper
 
