@@ -1,0 +1,2 @@
+#!/usr/bin/execlineb -P
+/opt/sensu/bin/sensu-api -c /etc/sensu/config.json -d /etc/sensu -e /etc/sensu/extensions -v

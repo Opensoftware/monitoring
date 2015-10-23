@@ -63,3 +63,18 @@ nginx:
    - graphite
    - grafana
 
+sensu_server:
+  image: opensoftware/sensu_server
+  links:
+    - carbonrelay
+    - rabbitmq
+  volumes:
+    - ./sensu_server/etc/services.d:/etc/services.d
+    - ./sensu_server/sensu/config:/etc/sensu/conf.d
+    - ./sensu_server/sensu/handlers:/etc/sensu/handlers
+
+rabbitmq:
+  image: rabbitmq:3.5.6
+  ports:
+   - "5672:5672"
+
