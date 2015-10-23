@@ -1,5 +1,12 @@
 {
   "checks": {
+    "nginx_check": {
+      "type": "metric",
+      "command": "check-procs.rb -p nginx",
+      "interval": 30,
+      "subscribers": ["nginx"],
+      "handlers": ["flapjack"]
+    },
     "load_metrics": {
       "type": "metric",
       "command": "load-metrics.rb",

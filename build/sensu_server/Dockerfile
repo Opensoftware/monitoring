@@ -14,7 +14,11 @@ RUN       apt-get install -y curl && \
 
 RUN       apt-get install -y git && \
           git clone http://github.com/opower/sensu-metrics-relay.git && \
-          cp -R sensu-metrics-relay/lib/sensu/extensions/* /etc/sensu/extensions
+          cp -R sensu-metrics-relay/lib/sensu/extensions/* /etc/sensu/extensions && \
+          git clone git://github.com/sensu/sensu-community-plugins.git && \
+          cp sensu-community-plugins/extensions/handlers/flapjack.rb /etc/sensu/extensions/handlers
+
+RUN       rm -rf sensu-metrics-relay.git sensu-community-plugins.git
 
 ENTRYPOINT ["/init"]
 

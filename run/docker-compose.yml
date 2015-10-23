@@ -56,18 +56,21 @@ nginx:
   restart: always
   ports:
    - "443:443"
+   - "3080:3080"
   volumes:
    - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf
    - ./nginx/ssl:/etc/nginx/ssl
   links:
    - graphite
    - grafana
+   - flapjack
 
 sensu_server:
   image: opensoftware/sensu_server
   links:
     - carbonrelay
     - rabbitmq
+    - flapjack
   volumes:
     - ./sensu_server/etc/services.d:/etc/services.d
     - ./sensu_server/sensu/config:/etc/sensu/conf.d
@@ -78,3 +81,5 @@ rabbitmq:
   ports:
    - "5672:5672"
 
+flapjack:
+  image: flapjack/flapjack:latest
