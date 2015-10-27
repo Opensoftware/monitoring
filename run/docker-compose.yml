@@ -35,6 +35,8 @@ graphite:
   image: opensoftware/graphite_web
   command: graphiteweb
   restart: always
+  ports:
+    - "80:80"
   volumes_from:
    - monitoring_whisper_1
   volumes:
@@ -86,3 +88,14 @@ rabbitmq:
 flapjack:
   restart: always
   image: flapjack/flapjack:latest
+
+statsd:
+  restart: always
+  image: visity/statsd:latest
+  ports:
+   - "8125/udp:8125/udp"
+  volumes:
+    - ./statsd/config.js:/opt/statsd/config.js
+  links:
+    - carbonrelay
+
