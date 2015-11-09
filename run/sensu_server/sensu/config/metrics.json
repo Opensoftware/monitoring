@@ -1,5 +1,12 @@
 {
   "checks": {
+    "disk_check": {
+      "type": "metric",
+      "command": "check-disk.rb",
+      "interval": 30,
+      "subscribers": ["all"],
+      "handlers": ["flapjack"]
+    },
     "nginx_check": {
       "type": "metric",
       "command": "check-procs.rb -p nginx",
@@ -12,7 +19,7 @@
       "command": "load-metrics.rb",
       "subscribers": ["all"],
       "handlers": ["relay"],
-      "interval": 5
+      "interval": 30
     },
     "memory_metrics": {
       "type": "metric",
@@ -20,7 +27,23 @@
       "command": "memory-metrics.rb",
       "subscribers": ["all"],
       "handlers": ["relay"],
-      "interval": 5
+      "interval": 30
+    },
+    "disk-capacity-metrics": {
+      "type": "metric",
+      "output_type": "graphite",
+      "command": "disk-capacity-metrics.rb",
+      "subscribers": ["all"],
+      "handlers": ["relay"],
+      "interval": 30
+    },
+    "disk-usage-metrics": {
+      "type": "metric",
+      "output_type": "graphite",
+      "command": "disk-usage-metrics.rb",
+      "subscribers": ["all"],
+      "handlers": ["relay"],
+      "interval": 30
     }
   }
 }
