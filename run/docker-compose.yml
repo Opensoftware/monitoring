@@ -88,6 +88,11 @@ rabbitmq:
 flapjack:
   restart: always
   image: flapjack/flapjack:latest
+  volumes:
+    - /var/lib/flapjack/redis-flapjack
+    - ./flapjack:/etc/flapjack
+  ports:
+    - "3081:3081"
 
 statsd:
   restart: always
