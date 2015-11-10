@@ -202,7 +202,7 @@ production:
       auto_refresh: 120
       access_log: "/var/log/flapjack/web_access.log"
       # Main URL for this service eg: "http://flapjack.example/"
-      #base_url: "/"
+      base_url: "/flapjack/"
       # URL for accessing the JSONAPI service from the browser
       #api_url: "https://localhost:3081/"
       # Full path to location of logo file, e.g. /etc/flapjack/custom_logo.png
