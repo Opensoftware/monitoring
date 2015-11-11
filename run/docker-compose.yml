@@ -91,6 +91,8 @@ flapjack:
   volumes:
     - /var/lib/flapjack/redis-flapjack
     - ./flapjack/flapjack_config.yaml:/etc/flapjack/flapjack_config.yaml
+    - ./flapjack/.pandik.json:/root/.pandik.json
+    - ./flapjack/etc/services.d/flapjack-httpchecker/:/etc/services.d/flapjack-httpchecker/
   ports:
     - "3081:3081"
 
