@@ -87,10 +87,10 @@ rabbitmq:
 
 flapjack:
   restart: always
-  image: flapjack/flapjack:latest
+  image: opensoftware/flapjack:latest
   volumes:
     - /var/lib/flapjack/redis-flapjack
-    - ./flapjack:/etc/flapjack
+    - ./flapjack/flapjack_config.yaml:/etc/flapjack/flapjack_config.yaml
   ports:
     - "3081:3081"
 

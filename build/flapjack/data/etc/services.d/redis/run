@@ -1,0 +1,2 @@
+#!/usr/bin/execlineb -P
+/opt/flapjack/embedded/bin/redis-server /opt/flapjack/embedded/etc/redis/redis-flapjack.conf
