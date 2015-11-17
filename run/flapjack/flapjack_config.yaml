@@ -73,7 +73,7 @@ production:
       smtp_config:
         from: "Flapjack Example <flapjack@noreply.example>"
         # reply_to: "flapjack@support.example"
-        host: localhost
+        host: 172.16.36.10
         # 1025 is the default port for http://mailcatcher.me
         port: 1025
         starttls: false
@@ -204,7 +204,7 @@ production:
       # Main URL for this service eg: "http://flapjack.example/"
       base_url: "/flapjack/"
       # URL for accessing the JSONAPI service from the browser
-      #api_url: "https://localhost:3081/"
+      api_url: "https://172.16.36.10/flapjack_api/"
       # Full path to location of logo file, e.g. /etc/flapjack/custom_logo.png
       #logo_image_path: "/etc/flapjack/web/custom_logo/flapjack-2013-notext-transparent-300-300.png"
       show_exceptions: false
